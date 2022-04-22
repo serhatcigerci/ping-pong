@@ -34,11 +34,32 @@ body {
 }
 
 .ball {
-  --position: 50;
+  --x: 50;
+  --y: 50;
   position: absolute;
   background-color: var(--foreground-color);
-  top: calc(var(--position) * 1vh);
-  transform: translateY(-50%);
-  width: 1vh;
-  height: 10vh;
+  left: calc(var(--x) * 1vh);
+  top: calc(var(--y) * 1vh);
+  border-radius: 50%;
+  transform: translateY(-50%, -50%);
+  width: 2.5vh;
+  height: 2.5vh;
+}
+
+.score {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 7vh;
+  color: var(--foreground-color);
+
+}
+
+.score > * {
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.score > :first-child {
+  text-align: right;
 }
