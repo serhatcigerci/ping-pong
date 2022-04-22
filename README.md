@@ -1,1 +1,1 @@
-# ping-pong
+# a fancy ping pong game with pure JS and CSS. You can simply download and play!
