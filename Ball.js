@@ -3,12 +3,12 @@ const VELOCITY_INCREASE = 0.00001
 
 export default class Ball {
   constructor(ballElem) {
-    this.ballElem = ballElem;
+    this.ballElem = ballElem
     this.reset()
   }
 
   get x() {
-    return parseFloat(getComputedStyle(this.ballElem).getPropertyValue('--x'))
+    return parseFloat(getComputedStyle(this.ballElem).getPropertyValue("--x"))
   }
 
   set x(value) {
@@ -16,7 +16,7 @@ export default class Ball {
   }
 
   get y() {
-    return parseFloat(getComputedStyle(this.ballElem).getPropertyValue('--y'))
+    return parseFloat(getComputedStyle(this.ballElem).getPropertyValue("--y"))
   }
 
   set y(value) {
@@ -30,8 +30,11 @@ export default class Ball {
   reset() {
     this.x = 50
     this.y = 50
-    this.direction = { x: 0}
-    while(Math.abs(this.direction.x) <= .2 || Math.abs(this.direction.y) <= .9) {
+    this.direction = { x: 0 }
+    while (
+      Math.abs(this.direction.x) <= 0.2 ||
+      Math.abs(this.direction.x) >= 0.9
+    ) {
       const heading = randomNumberBetween(0, 2 * Math.PI)
       this.direction = { x: Math.cos(heading), y: Math.sin(heading) }
     }
@@ -40,7 +43,7 @@ export default class Ball {
 
   update(delta, paddleRects) {
     this.x += this.direction.x * this.velocity * delta
-    this.x += this.direction.y * this.velocity * delta
+    this.y += this.direction.y * this.velocity * delta
     this.velocity += VELOCITY_INCREASE * delta
     const rect = this.rect()
 
@@ -48,8 +51,9 @@ export default class Ball {
       this.direction.y *= -1
     }
 
-    if (paddleRects.some(r => isCollision(r, rect)))
-    this.direction.x *= -1
+    if (paddleRects.some(r => isCollision(r, rect))) {
+      this.direction.x *= -1
+    }
   }
 }
 
