@@ -1,1 +1,1 @@
-# a fancy ping pong game with pure JS and CSS. You can simply download and play!
+# a fancy ping pong game with pure JS and CSS I made with the tutorial of WDS. If you want to learn more about it, check this out: https://youtu.be/PeY6lXPrPaA
